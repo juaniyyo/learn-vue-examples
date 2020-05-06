@@ -1,6 +1,9 @@
 <template>
   <div class="about">
-    <h1>This is an ABOUT page</h1>
+    <h1 v-if="this.$route.path == '/about'">This is an ABOUT page</h1>
+    <h1 v-if="this.$route.path == '/about/axios'">
+      This is an ABOUT/AXIOS page
+    </h1>
     <transition name="fade">
       <router-view></router-view>
     </transition>

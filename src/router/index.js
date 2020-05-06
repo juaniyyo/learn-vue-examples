@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import TodoList from "../views/TodoList.vue";
 import AxiosComponent from "../views/AxiosComponent.vue";
+import GymComponent from "../views/GymComponent.vue";
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,11 @@ const routes = [
     path: "/todo",
     name: "Tareas",
     component: TodoList
+  },
+  {
+    path: "/gym",
+    name: "Gym",
+    component: GymComponent
   }
 ];
 

@@ -43,7 +43,6 @@ export default {
       };
       this.tasks.push(task);
       this.newTask = "";
-      console.log(this.tasks);
     },
     completedTask(taskText) {
       for (let i = 0; i < this.tasks.length; i++) {
@@ -77,25 +76,27 @@ export default {
   margin 0px auto
 
 .form
-  background white
-  border-radius 12px
   padding 30px
-  box-shadow 0px 10px 22px -1px rgba(0,0,0,0.25)
   margin-top 10px
 
 .label
   display block
   margin-bottom 10px
+  font-size 1.2em
+  font-weight bold
 
 .input
-  height 35px
+  height 25px
+  width 300px
 
 .button
+  font-size 1em
   margin-left 20px
   height 35px
+  padding 0px 20px
   border none
-  border-radius 5px
-  box-shadow 0 1px 4px rgba(0, 0, 0, .2)
+  border-radius 3px
+  box-shadow 0 1px 4px 1px rgba(0, 0, 0, .2)
   background-color #2ecc71
   color #ecf0f1
   cursor pointer
