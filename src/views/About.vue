@@ -1,15 +1,30 @@
 <template>
   <div class="about">
-    <h1 v-if="this.$route.path == '/about'">This is an ABOUT page</h1>
-    <h1 v-if="this.$route.path == '/about/axios'">
-      This is an ABOUT/AXIOS page
-    </h1>
+    <div id="about" v-if="this.$route.path == '/about'">
+      <h1 class="mt-3">This is an ABOUT with LOGIN page</h1>
+      <p>This login page save user data in localStorage a load this data on every page</p>
+      <Login />
+    </div>
+    <div id="axios" v-if="this.$route.path == '/about/axios'">
+      <h1>
+        This is an ABOUT/AXIOS page
+      </h1>
+    </div>
     <transition name="fade">
-      <router-view></router-view>
+      <router-view />
     </transition>
   </div>
 </template>
 
+<script>
+import Login from "@/components/LoginComponent.vue";
+
+export default {
+  components: {
+    Login
+  }
+};
+</script>
 <style scoped>
 .fade-enter-active {
   animation: bounce-in 0.5s;

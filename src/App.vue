@@ -5,7 +5,9 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/todo">Tareas</router-link> |
       <router-link to="/about/axios">Axios</router-link> |
-      <router-link to="/gym">Gym</router-link>
+      <router-link to="/gym">Gym</router-link> |
+      <router-link to="/state">State</router-link> |
+      <router-link to="/wordpress">Wordpress</router-link>
     </div>
     <router-view />
   </div>
@@ -27,4 +29,8 @@ html
   text-align center
   color #2c3e50
   margin-top 60px
+
+#nav a.router-link-exact-active
+  color: #f0db4f
+  font-weight: bold
 </style>

@@ -13,7 +13,7 @@
         :key="task.id"
         :class="{ completed: task.completed }"
       >
-        {{ task.text | strong }}
+        {{ task.text | ucase }}
         | <button @click="completedTask(task.text)">Completa</button> |
         <button @click="deleteTask(task.id)">
           X

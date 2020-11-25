@@ -15,6 +15,8 @@ Vue.use(KeenUI);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
+store.dispatch("wordpress/isAuthenticate");
+
 new Vue({
   router,
   store,

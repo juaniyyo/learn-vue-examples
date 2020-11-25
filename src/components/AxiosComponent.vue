@@ -3,8 +3,11 @@
     <form class="form" @submit.prevent="getData(searchId)">
       <label class="label" for="task">Search user by ID</label><br />
       <input class="input" type="text" v-model="searchId" id="searchId" /> |
-      <input class="button" type="submit" value="Search User" /> |
-      <button @click.prevent="cleanScreen()">X</button>
+      <b-button variant="outline-primary" class="m-2" type="submit"
+        >Search User</b-button
+      >
+      |
+      <b-button @click.prevent="cleanScreen()">X</b-button>
     </form>
     <div v-if="loader">
       <vcl-bullet-list :width="300" :rows="5"></vcl-bullet-list>
@@ -49,8 +52,7 @@ export default {
     action: "OK",
     queueSnackbars: false,
     duration: 5,
-    actionColor: "primary",
-    message: "Error cargando datos. Vuelve a intentarlo"
+    actionColor: "primary"
   }),
   components: {
     VclBulletList,
@@ -66,23 +68,19 @@ export default {
         timeout: 3000
       })
         .then(result => {
-          setTimeout(() => {
-            this.result = result.data;
-            this.loader = null;
-            this.searchId = "";
-          }, 1500);
+          this.result = result.data;
+          this.loader = null;
+          this.searchId = "";
         })
         .catch(error => {
           console.log(error);
-          setTimeout(() => {
-            this.loader = null;
-            this.createSnackbar();
-          }, 3500);
+          this.loader = null;
+          this.createSnackbar(error);
         });
     },
-    createSnackbar() {
+    createSnackbar(error) {
       this.$refs.snackbarContainer.createSnackbar({
-        message: this.message,
+        message: error.message,
         actionColor: this.actionColor,
         duration: this.duration * 1000,
         action: this.action,

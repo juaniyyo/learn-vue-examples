@@ -8,8 +8,17 @@
         v-model="nuevaTarea"
         v-on:keyup.enter="agregarTarea"
       />
-      <b-button variant="outline-primary" @click.prevent="agregarTarea"
+      <b-button
+        variant="outline-primary"
+        class="m-1"
+        @click.prevent="agregarTarea"
         >Agregar</b-button
+      >
+      <b-button
+        variant="outline-danger"
+        class="m-1"
+        @click.prevent="limpiarTareas"
+        >Limpiar</b-button
       >
     </div>
     <div class="mt-4" v-for="(tarea, index) in tareas" :key="index">
@@ -62,6 +71,10 @@ export default {
     eliminar(index) {
       this.tareas.splice(index, 1);
       localStorage.setItem("gym-vue", JSON.stringify(this.tareas));
+    },
+    limpiarTareas() {
+      this.tareas = [];
+      localStorage.clear();
     }
   },
   created() {
